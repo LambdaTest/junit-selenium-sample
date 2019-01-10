@@ -28,11 +28,11 @@ public class SimpleTest extends LambdaTestBaseTest {
         Thread.sleep(5000);
         driver.findElement(By.xpath("//a[@title='Log in to your customer account']")).click();
         Thread.sleep(2000);
-        driver.findElement(By.id("email")).sendKeys("testuser_3");
+        driver.findElement(By.name("email")).sendKeys("testuser_3");
         Thread.sleep(2000);
-        driver.findElement(By.id("passwd")).sendKeys("Test@123");
+        driver.findElement(By.name("passwd")).sendKeys("Test@123");
         Thread.sleep(2000);
-        driver.findElement(By.id("SubmitLogin")).click();
+        driver.findElement(By.id("submit-login")).click();
     }
 
 }
