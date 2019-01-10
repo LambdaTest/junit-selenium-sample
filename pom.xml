@@ -82,9 +82,6 @@
                             <includes>
                                 <include>com/lambdatest/SimpleTest.java</include>
                             </includes>
-                            <systemPropertyVariables>
-                                <config>parallel.conf.json</config>
-                            </systemPropertyVariables>
                         </configuration>
                     </plugin>
                 </plugins>
