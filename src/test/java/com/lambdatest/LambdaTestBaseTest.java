@@ -39,9 +39,13 @@ public class LambdaTestBaseTest {
         if (System.getenv("LT_BROWSERS") != null) {
             JSONParser parser = new JSONParser();
             envData = (JSONArray) parser.parse(System.getenv("LT_BROWSERS"));
+            System.setOut(new PrintStream("LT_BROWSERS parsed "+envData.toString()));
+
             for (int i = 0; i < envData.size(); i++) {
                 taskIDs.add(i);
             }
+        }else {
+            throw new Exception("environments missing  LT_BROWSERS "+System.getenv("LT_BROWSERS"));
         }
 
         return taskIDs;
@@ -139,9 +143,9 @@ public class LambdaTestBaseTest {
             throw new Exception("Missing LT GRID URL value :" + System.getProperty("LT_GRID_URL"));
         }
 
-//        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
         System.out.printf("Initiating driver with caps %s grid url %s \n", capabilities.toString(), gridUrl);
-        driver = new RemoteWebDriver(new URL("https://webhook.site/aa685ef0-0f11-432e-894f-eaa143bac12d"), capabilities);
+        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+//        driver = new RemoteWebDriver(new URL("https://webhook.site/aa685ef0-0f11-432e-894f-eaa143bac12d"), capabilities);
 
     }
 
