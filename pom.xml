@@ -82,6 +82,9 @@
                             <includes>
                                 <include>com/lambdatest/SimpleTest.java</include>
                             </includes>
+
+                            <systemPropertiesFile>src/main/resources/testdata.properties</systemPropertiesFile>
+
                         </configuration>
                     </plugin>
                 </plugins>
