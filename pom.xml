@@ -11,6 +11,7 @@
 
 
 
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <surefire.version>2.19.1</surefire.version>
@@ -24,27 +25,42 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>1.3.2</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>2.52.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
 
     <build>
         <plugins>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -54,6 +70,7 @@
     </build>
 
     <profiles>
+
         <profile>
             <id>parallel</id>
             <build>
@@ -63,22 +80,17 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/tests/*.java</include>
+                                <include>com/lambdatest/SimpleTest.java</include>
                             </includes>
-                            <!--<systemPropertyVariables>-->
-                                <!--<config>parallel.conf.json</config>-->
-                            <!--</systemPropertyVariables>-->
-
-                            <network>${network}</network>
-                            <video>${video}</video>
-                            <visual>${visual}</visual>
-                            <console>${console}</console>
-                            <fixedIP>${fixedIP}</fixedIP>
+                            <systemPropertyVariables>
+                                <config>parallel.conf.json</config>
+                            </systemPropertyVariables>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
+
     </profiles>
 
 </project>

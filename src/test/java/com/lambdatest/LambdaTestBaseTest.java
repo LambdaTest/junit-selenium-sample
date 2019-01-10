@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class LambdaTestBaseTest {
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
+        System.setOut(new PrintStream("setUp started"));
 
 
         //Setting build name from env starts
@@ -138,9 +139,9 @@ public class LambdaTestBaseTest {
             throw new Exception("Missing LT GRID URL value :" + System.getProperty("LT_GRID_URL"));
         }
 
-        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+//        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
         System.out.printf("Initiating driver with caps %s grid url %s \n", capabilities.toString(), gridUrl);
-//        driver = new RemoteWebDriver(new URL("https://webhook.site/aa685ef0-0f11-432e-894f-eaa143bac12d"), capabilities);
+        driver = new RemoteWebDriver(new URL("https://webhook.site/aa685ef0-0f11-432e-894f-eaa143bac12d"), capabilities);
 
     }
 
