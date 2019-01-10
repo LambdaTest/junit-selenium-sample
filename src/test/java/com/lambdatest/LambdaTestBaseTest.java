@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,6 @@ public class LambdaTestBaseTest {
         if (System.getenv("LT_BROWSERS") != null) {
             JSONParser parser = new JSONParser();
             envData = (JSONArray) parser.parse(System.getenv("LT_BROWSERS"));
-            System.setOut(new PrintStream("LT_BROWSERS parsed "+envData.toString()));
 
             for (int i = 0; i < envData.size(); i++) {
                 taskIDs.add(i);
@@ -61,8 +59,6 @@ public class LambdaTestBaseTest {
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        System.setOut(new PrintStream("setUp started"));
-
 
         //Setting build name from env starts
         String buildName = "";
