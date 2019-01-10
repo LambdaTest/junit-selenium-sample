@@ -21,13 +21,17 @@ public class SimpleTest extends LambdaTestBaseTest {
 
 
     @Test
-    public void validateUser(){
-
+    public void validateUser() throws Exception {
+        Thread.sleep(5000);
         System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
         driver.get("http://prestashop.lambdatest.io/index.php");
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//a[@title='Log in to your customer account']")).click();
+        Thread.sleep(2000);
         driver.findElement(By.id("email")).sendKeys("testuser_3");
+        Thread.sleep(2000);
         driver.findElement(By.id("passwd")).sendKeys("Test@123");
+        Thread.sleep(2000);
         driver.findElement(By.id("SubmitLogin")).click();
     }
 
