@@ -33,6 +33,7 @@ public class SimpleTest extends LambdaTestBaseTest {
         driver.findElement(By.name("password")).sendKeys("Test@123");
         Thread.sleep(2000);
         driver.findElement(By.id("submit-login")).click();
+        Thread.sleep(10000);
     }
 
 }
