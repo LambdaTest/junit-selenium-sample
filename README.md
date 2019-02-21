@@ -16,6 +16,8 @@ A Sample Junit app to run selenium automation tests on LambdaTest grid.
 - Desired capabilities list can be found at location `test->resources->config.json`.
 
 ### Installation
+- Go to project dir
+- Install dependencies
 ```bash
 # setup project dependencies
 mvn clean install
@@ -24,15 +26,6 @@ mvn clean install
 
 ### Run tests
 ```bash
-php artisan dusk
+mvn surefire:test "-Dtest=SimpleTest" "-Djunit.parallel.threads=4" "-Dnetwork=true" "-Dvideo=true" "-Dvisual=true" "-Dconsole=true"
 ```
-
-### Generate test cases
-- Change directory to project root `cd /your/project`
-- Execute `php artisan dusk:make {test case name}` 
-    e.g:
-    ```bash
-    php artisan dusk:make TodoTest
-    ```
-### Note
-Our sample test case can be found in `tests/Browser/TodoTest.php` file. It navigates to our sample to-do app.
+ 
