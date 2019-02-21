@@ -11,7 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.FileReader;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +45,19 @@ public class LambdaTestBaseTest {
                 taskIDs.add(i);
             }
         }else {
-            throw new Exception("environments missing  LT_BROWSERS "+System.getenv("LT_BROWSERS"));
+            JSONParser parser = new JSONParser();
+            //Use JSONObject for simple JSON and JSONArray for array of JSON.
+            URL resource = LambdaTestBaseTest.class.getResource("/config.json");
+            Paths.get(resource.toURI()).toFile();
+
+
+
+            envData = (JSONArray) parser.parse(
+                    new FileReader(Paths.get(resource.toURI()).toFile()));//path to the JSON file.
+
+            for (int i = 0; i < envData.size(); i++) {
+                taskIDs.add(i);
+            }
         }
 
         return taskIDs;
