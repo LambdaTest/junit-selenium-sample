@@ -10,9 +10,9 @@ A Sample Junit app to run selenium automation tests on LambdaTest grid.
 
 ### Configuration steps
 - Set env varibles. 
-    ```bash
-        export LT_GRID_URL=https://{username}:{accessToken}@hub.lambdatest.com/wd/hub
-    ```
+```bash
+export LT_GRID_URL=https://{username}:{accessToken}@hub.lambdatest.com/wd/hub
+```
 - Desired capabilities list can be found at location `test->resources->config.json`.
 
 ### Installation
