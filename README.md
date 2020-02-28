@@ -1,7 +1,7 @@
 ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
 ---
 
-# junit-selenium-sample
+# Run Junit Script On LambdaTest Selenium Grid
 A Sample Junit app to run selenium automation tests on [LambdaTest](https://www.lambdatest.com/) grid. 
 
 ### Prerequisites
