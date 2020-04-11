@@ -9,10 +9,23 @@ A Sample Junit app to run selenium automation tests on [LambdaTest](https://www.
 
 
 ### Configuration steps
-- Set env varibles. 
-```bash
-export LT_GRID_URL=https://{username}:{accessToken}@hub.lambdatest.com/wd/hub
-```
+LambdaTest Credentials
+Set LambdaTest username and access key in environment variables. It can be obtained from LambdaTest Automation Dashboard
+example:
+
+* For linux/mac
+
+export LT_USERNAME="YOUR_USERNAME"
+
+export LT_ACCESS_KEY="YOUR ACCESS KEY"
+
+* For Windows
+
+set LT_USERNAME="YOUR_USERNAME"
+
+set LT_ACCESS_KEY="YOUR ACCESS KEY"
+
+
 - Desired capabilities list can be found at location `test/resources/config.json`.
 
 ### Installation
