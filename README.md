@@ -31,7 +31,7 @@ Now let’s start with a simple Selenium WebDriver test. Below is a Selenium scr
 * Add a new item in the list.
 * Return the added item.
 
-To run your first test using JUnit with Selenium, follow the simple example below. Same code can be downloaded from our repository: Java-Junit-Selenium
+To run your first test using JUnit with Selenium, follow the simple example below. Same code can be downloaded from our repository: Java-JUnit-Selenium
 
 **JUnit Todo : Sample App**
 
@@ -111,19 +111,17 @@ public class JUnitTodo {
 
 You would need to execute the below command in your terminal/cmd.
 
-## Running First Test
-
 <code>mvn test -P single</code>
 
 ## Configuring Desired Capabilities
 
-First step is to configure your test scripts to connect with LambdaTest Selenium automation gird. You would have to invoke of remote webdriver instead of the native browser webdrivers.
+First step is to configure your test scripts to connect with LambdaTest Selenium automation gird. You would have to invoke of remote WebDriver instead of the native browser WebDrivers.
 
-**Local Webdriver:**
+**Local WebDriver:**
 
 <code>FirefoxDriver driver = new FirefoxDriver():</code>
 
-You would have to change it remote webdriver and at the same time pass capabilities related to the browser, browser versions etc. In simple terms, it would look something like this:
+You would have to change it remote WebDriver and at the same time pass capabilities related to the browser, browser versions etc. In simple terms, it would look something like this:
 
 **Remote WebDriver:**
 ```
@@ -132,6 +130,12 @@ DesiredCapabilities.firefox());
 ```
 
 ## Capabilities Generator At LambdaTest Will Provide You With The Below Program:
+
+LambdaTest Provides you with the capabilities generator for your Selenium script. You an select your cofigrations on which you wnat to test and it will automatically generate the code for you desired capabilities class.
+
+![Desired Capabilities](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Selenium-test-automation-1.png)
+
+Here is capability class:
 
 ```
 DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -145,7 +149,7 @@ capabilities.setCapability("visual",true);
 capabilities.setCapability("firefox.driver",v0.23.0);
 ```
 
-## Testing Locally Hosted Projects Using Junit With Selenium
+## Testing Locally Hosted Projects Using JUnit With Selenium
 
 To help you perform cross browser testing of locally stored web pages, LambdaTest provides an SSH(Secure Shell) tunnel connection with the name Lambda Tunnel. With Lambda Tunnel, you can test your locally hosted files before you make them live over the internet. You could even perform cross browser testing from different IP addresses belonging to various geographic locations. You can also use LambdaTest Tunnel to test web-apps and websites that are permissible inside your corporate firewall. The SSH tunnel provided by LambdaTest acts as a proxy server for hosting your web pages from your local machine to Virtual machines running on LambdaTest cloud servers.
 
@@ -155,16 +159,8 @@ Download the binary file of:
 * [Lambda Tunnel for Mac](http://downloads.lambdatest.com/tunnel/mac/64bit/LT_Mac.zip)
 * [Lambda Tunnel for Linux](http://downloads.lambdatest.com/tunnel/linux/64bit/LT_Linux.zip)
 
-**Syntax To Start Lambda Tunnel**
-
-<code>LT -user [user's login email] -key [user's access key]</code>
-
-So for example, if your user login email is [example@lambdatest.com](mailto:example@lambdatest.com) and your user key is 123asd123, then the command would be:
-
-<code>LT -user example@lambdatest.com -key 123asd123</code>
-
-Once, the tunnel is successfully set up. You can add the below code to your capabilities for testing internal servers on your network.
-
+ After you start the Lambda Tunnel you need to set the tunnel capability to true.
+ 
 **Tunnel Capability**
 
 ```
@@ -314,7 +310,7 @@ public class JUnitConcurrentTodo {
 
 ## About LambdaTest
 
-[LambdaTest](https://www.lambdatest.com/) is a cloud based selenium grid infrastructure that can help you run automated cross browser compatibility tests on 2000+ different browser and operating system environments. LambdaTest supports all programming languages and frameworks that are supported with Selenium, and have easy integrations with all popular CI/CD platforms. It's a perfect solution to bring your [selenium automation testing](https://www.lambdatest.com/selenium-automation) to cloud based infrastructure that not only helps you increase your test coverage over multiple desktop and mobile browsers, but also allows you to cut down your test execution time by running tests on parallel.
+[LambdaTest](https://www.lambdatest.com/) is a cloud based Selenium grid infrastructure that can help you run automated cross browser compatibility tests on 2000+ different browser and operating system environments. LambdaTest supports all programming languages and frameworks that are supported with Selenium, and have easy integrations with all popular CI/CD platforms. It's a perfect solution to bring your [Selenium automation testing](https://www.lambdatest.com/selenium-automation) to cloud based infrastructure that not only helps you increase your test coverage over multiple desktop and mobile browsers, but also allows you to cut down your test execution time by running tests on parallel.
 
 ## Resources:
 
