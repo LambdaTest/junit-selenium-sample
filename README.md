@@ -216,9 +216,12 @@ public class Parallelized extends Parameterized {
         setScheduler(new ThreadPoolScheduler());
     }
 }
-
+```
 Let us take a look at a reference of the above helper class for executing parallel test using JUnit automation framework.
-JUnit Concurrent Todo : Sample App
+
+**JUnit Concurrent Todo : Sample App**
+
+```
 import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
