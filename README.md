@@ -5,7 +5,7 @@
 
 This post will help you in getting started with configuring and running your JUnit automation testing scripts on LambdaTest cloud Selenium grid platform.
 
-## Prerequisite to perform JUnit automation testing
+## Prerequisite To Perform JUnit Automation Testing
 To run your test script using JUnit with Selenium, first you need to setup the environment.
 
 1)	Install JDK 1.6 or higher version
@@ -23,7 +23,7 @@ To run your test script using JUnit with Selenium, first you need to setup the e
 </dependency>
 
 ```
-## Your first test with JUnit framework
+## Your First Test With JUnit Framework
 
 Now let’s start with a simple Selenium WebDriver test. Below is a Selenium script for JUnit automation testing that will open a sample to-do application which will do following task:
 
@@ -131,7 +131,7 @@ WebDriver driver = new RemoteWebDriver(new URL("https://" + username + ":" + acc
 DesiredCapabilities.firefox());
 ```
 
-## Capabilities Generator at LambdaTest will provide you with the below program:
+## Capabilities Generator At LambdaTest Will Provide You With The Below Program:
 
 ```
 DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -145,7 +145,7 @@ capabilities.setCapability("visual",true);
 capabilities.setCapability("firefox.driver",v0.23.0);
 ```
 
-## Testing Locally Hosted Projects using Junit with Selenium
+## Testing Locally Hosted Projects Using Junit With Selenium
 
 To help you perform cross browser testing of locally stored web pages, LambdaTest provides an SSH(Secure Shell) tunnel connection with the name Lambda Tunnel. With Lambda Tunnel, you can test your locally hosted files before you make them live over the internet. You could even perform cross browser testing from different IP addresses belonging to various geographic locations. You can also use LambdaTest Tunnel to test web-apps and websites that are permissible inside your corporate firewall. The SSH tunnel provided by LambdaTest acts as a proxy server for hosting your web pages from your local machine to Virtual machines running on LambdaTest cloud servers.
 
@@ -155,7 +155,7 @@ Download the binary file of:
 * [Lambda Tunnel for Mac](http://downloads.lambdatest.com/tunnel/mac/64bit/LT_Mac.zip)
 * [Lambda Tunnel for Linux](http://downloads.lambdatest.com/tunnel/linux/64bit/LT_Linux.zip)
 
-**Syntax To Start Lambda Tunne**
+**Syntax To Start Lambda Tunnel**
 
 <code>LT -user [user's login email] -key [user's access key]</code>
 
