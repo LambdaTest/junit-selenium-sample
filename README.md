@@ -1,4 +1,4 @@
-# Junit-Tutorial
+# JUnit-Tutorial
 ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
 
 ![Junit Logo](https://www.lambdatest.com/blog/wp-content/uploads/2020/08/junit.png)
