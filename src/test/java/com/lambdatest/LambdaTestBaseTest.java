@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.FileReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -20,7 +21,15 @@ import java.util.Map;
 
 @RunWith(Parallelized.class)
 public class LambdaTestBaseTest {
-    public WebDriver driver;
+    public RemoteWebDriver driver;
+
+    String user = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
+    String accessKey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
+    
+    String hub = "hub.lambdatest.com/wd/hub";
+
+    public String hubURL="https://"+user+":"+accessKey+"@"+hub;
+
 
     private static JSONArray envData;
 
@@ -63,24 +72,18 @@ public class LambdaTestBaseTest {
         return taskIDs;
     }
 
-    /**
-     * Setting Capebilties and initiating driver for inherited classes
-     *
-     * @throws Exception
-     */
     @Before
-    public void setUp() throws Exception {
-
+    public void setup() {
+        //Setting build name from env starts
+        String buildName = "Junit Sample Build";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        //Setting build name from env starts
-        String buildName = "";
-        if (System.getenv("LT_BUILD_NAME") != null) {
-            buildName = System.getenv("LT_BUILD_NAME");
+        if (System.getenv("LT_BUILD_NAME") != null) 
+            capabilities.setCapability("build", System.getenv("LT_BUILD_NAME"));
+        else
             capabilities.setCapability("build", buildName);
-
-        }
+            
 
         if (System.getenv("LT_BUILD_NUMBER") != null) {
             buildName += " - " + System.getenv("LT_BUILD_NUMBER");
@@ -123,15 +126,12 @@ public class LambdaTestBaseTest {
         }
         //Setting local tunnel identifiers ends
 
-
-
-
         //Setting caps for platform, browser, version based on env variables starts
 
         Map<String, String> envCapabilities = (Map<String, String>) envData.get(taskID);
-        capabilities.setCapability("platform", envCapabilities.get("operatingSystem"));
+        capabilities.setCapability("platformName", envCapabilities.get("platformName"));
         capabilities.setCapability("browserName", envCapabilities.get("browserName"));
-        capabilities.setCapability("version", envCapabilities.get("browserVersion"));
+        capabilities.setCapability("browserVersion", envCapabilities.get("browserVersion"));
         capabilities.setCapability("resolution", envCapabilities.get("resolution"));
 
         //Setting caps for platform, browser, version based on env variables ends
@@ -141,21 +141,23 @@ public class LambdaTestBaseTest {
         if (System.getenv("LT_TEST_NAME") != null) {
             capabilities.setCapability("name", System.getenv("LT_TEST_NAME"));
         }else{
-            String  testName = envCapabilities.get("operatingSystem")+"-"+envCapabilities.get("browserName")+"-"+envCapabilities.get("browserVersion")+taskID;
+            String  testName = envCapabilities.get("platformName")+"-"+envCapabilities.get("browserName")+"-"+envCapabilities.get("browserVersion")+"-"+taskID;
             capabilities.setCapability("name", testName);
         }
         //Setting test name starts ends
 
-
-
         String gridUrl = System.getenv("LT_GRID_URL");
         if (gridUrl == null) {
-            throw new Exception("Missing LT GRID URL value :" + System.getProperty("LT_GRID_URL"));
+            System.out.println("LT_GRID_URL ENV NOT SET using default HUB URL:"+ hubURL);
+            gridUrl=hubURL;
         }
 
-        System.out.printf("Initiating driver with caps %s grid url %s \n", capabilities.toString(), gridUrl);
-        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
-//        driver = new RemoteWebDriver(new URL("https://webhook.site/aa685ef0-0f11-432e-894f-eaa143bac12d"), capabilities);
+        try {
+            driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+       
 
     }
 

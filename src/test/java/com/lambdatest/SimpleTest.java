@@ -7,33 +7,67 @@ import org.openqa.selenium.By;
 import static org.junit.Assert.assertEquals;
 
 public class SimpleTest extends LambdaTestBaseTest {
-
-    /**
-     * Simple Test case annotating JUnit Test
-     * @throws Exception
-     */
-//    @Test
-//    public void test() throws Exception {
-//        driver.get("http://prestashop.lambdatest.io/index.php");
-//        Thread.sleep(5000);
-//        assertEquals("Google", driver.getTitle());
-//    }
-
+    public String Status = "failed";
 
     @Test
-    public void validateUser() throws Exception {
-        Thread.sleep(5000);
-        System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
-        driver.get("http://prestashop.lambdatest.io/index.php");
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//a[@title='Log in to your customer account']")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.name("email")).sendKeys("qademo@qademo.com");
-        Thread.sleep(2000);
-        driver.findElement(By.name("password")).sendKeys("111111");
-        Thread.sleep(2000);
-        driver.findElement(By.id("submit-login")).click();
-        Thread.sleep(10000);
+    public void basicTest() throws InterruptedException {
+        String spanText;
+        System.out.println("Loading Url");
+
+        driver.get("https://lambdatest.github.io/sample-todo-app/");
+
+        System.out.println("Checking Box");
+        driver.findElement(By.name("li1")).click();
+
+        System.out.println("Checking Another Box");
+        driver.findElement(By.name("li2")).click();
+
+        System.out.println("Checking Another Box");
+        driver.findElement(By.name("li4")).click();
+
+        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 6");
+        driver.findElement(By.id("addbutton")).click();
+
+        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 7");
+        driver.findElement(By.id("addbutton")).click();
+
+        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 8");
+        driver.findElement(By.id("addbutton")).click();
+
+        System.out.println("Checking Another Box");
+        driver.findElement(By.name("li1")).click();
+
+        System.out.println("Checking Another Box");
+        driver.findElement(By.name("li3")).click();
+
+        System.out.println("Checking Another Box");
+        driver.findElement(By.name("li7")).click();
+
+        System.out.println("Checking Another Box");
+        driver.findElement(By.name("li8")).click();
+        Thread.sleep(300);
+
+        System.out.println("Entering Text");
+        driver.findElement(By.id("sampletodotext")).sendKeys("Get Taste of Lambda and Stick to It");
+
+        driver.findElement(By.id("addbutton")).click();
+
+        // Let's also assert that the todo we added is present in the list.
+
+        spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
+        try {
+            assertEquals("Get Taste of Lambda and Stick to It", spanText);
+            Status = "passed";
+            
+        } catch (Error e) {
+            System.out.println(e.getMessage());
+           
+        } finally{
+            driver.executeScript("lambda-status=" + this.Status);
+        }
+        Thread.sleep(150);
+        System.out.println("TestFinished");
+
     }
 
 }
