@@ -1,7 +1,5 @@
 package com.lambdatest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.junit.After;
@@ -47,10 +45,10 @@ public class JUnitConcurrentTodo {
         capabilities.setCapability("platform", platform); // If this cap isn't specified, it will just get the any available one
         capabilities.setCapability("build", "JUnitParallelSample");
         capabilities.setCapability("name", "JUnitParallelSampleTest");
-        capabilities.setCapability("network", true); // To enable network logs
-        capabilities.setCapability("visual", true); // To enable step by step screenshot
-        capabilities.setCapability("video", true); // To enable video recording
-        capabilities.setCapability("console", true); // To capture console logs
+        // capabilities.setCapability("network", true); // To enable network logs
+        // capabilities.setCapability("visual", true); // To enable step by step screenshot
+        // capabilities.setCapability("video", true); // To enable video recording
+        // capabilities.setCapability("console", true); // To capture console logs
         try {
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + gridURL), capabilities);
         } catch (MalformedURLException e) {
