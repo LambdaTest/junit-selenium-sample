@@ -23,25 +23,34 @@ Step 2. Inside Junit-selenium-sample folder, export the Lambda-test Credentials.
 
 <p align="center">
    <b>For Linux/macOS:</b>
+
 ```
 export LT_USERNAME="YOUR_USERNAME"
 export LT_ACCESS_KEY="YOUR ACCESS KEY"
 ```
+
 <p align="center">
    <b>For Windows:</b>
+
 ```
 set LT_USERNAME="YOUR_USERNAME"
 set LT_ACCESS_KEY="YOUR ACCESS KEY"
 ```
+
 Step 3. To run your First Test.
+
 ```
 mvn test -P single
 ```
+
 Step 4. To run Parallel Test.
+
 ```
 mvn test -P parallel
 ```
+
 ## See the Results
+
 You can see the results of the test on Lambdatest [Automation Dashboard](https://automation.lambdatest.com/build)
 ![Dashboard](https://github.com/LambdaTest/junit-selenium-sample/dashboard)
 
