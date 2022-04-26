@@ -45,6 +45,12 @@
             <version>1.1.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>6.1.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 
@@ -97,7 +103,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/JUnitTodo.java</include>
+                                <include>com/lambdatest/NativeApp.java</include>
                             </includes>
                         </configuration>
                     </plugin>

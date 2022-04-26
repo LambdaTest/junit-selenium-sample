@@ -1,25 +1,23 @@
-# JUnit Selenium tutorial
-
-![MSTest](https://www.lambdatest.com/resources/images/meta/With-Junit.jpg)
+# JUnit Appium tutorial
 
 ## Prerequisites
 
-To run your test script using JUnit with Selenium, first you need to setup the environment.
+To run your test script using JUnit with Appium, first you need to setup the environment.
 
 1. Install JDK 1.6 or higher version
 2. Latest Selenium client and it’s WebDriver Bindings.
-3. Download Maven([Windows](https://maven.apache.org/download.cgi), [Linux](https://maven.apache.org/install.html), and [Mac](https://maven.apache.org/install.html)) or Ant. Maven supports JUnit out of the box. You would just have to define Selenium dependencies in it’s project object model file or pom.xml file.
+3. Download Maven([Windows](https://maven.apache.org/download.cgi), [Linux](https://maven.apache.org/install.html), and [Mac](https://maven.apache.org/install.html)) or Ant. Maven supports JUnit out of the box. You would just have to define Appium dependencies in it’s project object model file or pom.xml file.
 4. Optional - To test your locally or privately hosted files, you need LambdaTest Tunnel binary file.
 
 ## Steps to Run your First Test
 
-Step 1. Clone the Junit-Selenium-Sample Repository.
+Step 1. Clone the Junit-Appium-Sample Repository.
 
 ```
-git clone https://github.com/LambdaTest/junit-selenium-sample.git
+git clone https://github.com/LambdaTest/LT-appium-java-junit.git
 ```
 
-Step 2. Inside Junit-selenium-sample folder, export the Lambda-test Credentials. You can get these from your automation dashboard.
+Step 2. Inside Junit-Appium-sample folder, set the Lambda-test Credentials. You can get these from your automation dashboard.
 
 <p align="center">
    <b>For Linux/macOS:</b>
@@ -37,13 +35,19 @@ set LT_USERNAME="YOUR_USERNAME"
 set LT_ACCESS_KEY="YOUR ACCESS KEY"
 ```
 
-Step 3. To run your First Test.
+Step 3. Before running the Test
+
+```
+mvn clean
+```
+
+Step 4. To run your First Test.
 
 ```
 mvn test -P single
 ```
 
-Step 4. To run Parallel Test.
+Step 5. To run Parallel Test.
 
 ```
 mvn test -P parallel
