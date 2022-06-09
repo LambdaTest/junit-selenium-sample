@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest (Browser Cache Clearing Example)
+# Run Selenium Tests With JUnit On LambdaTest (Scrolling element into view and scroll by pixel testng selenium Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -99,14 +99,21 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any
                                                               // available one
         capabilities.setCapability("build", "Junit Testing Example");
-        capabilities.setCapability("name", "BrowserCache Test");
+        capabilities.setCapability("name", "ScrollingExample Test");
         capabilities.setCapability("plugin", "git-junit");
 ```
-### Clearing Browser Cache after Test
+### Scrolling element into view and scroll by pixel testng selenium code
 ```java
- // Clearing browser Cache after Test
-        driver.manage().deleteAllCookies(); // delete all cookies
-        Thread.sleep(7000); // wait 7 seconds to clear cookies.
+// Locating element by link text 
+        WebElement Element = driver.findElement(By.linkText("Book a Demo"));
+        // Scrolling down the page till the element is found
+        driver.executeScript("arguments[0].scrollIntoView();", Element);
+        Thread.sleep(1500);
+        // Scrolling down by pixels
+        driver.executeScript("window.scrollBy(0,-500)", "");
+        Thread.sleep(1500);
+        // Scrolling up by pixels
+        driver.executeScript("window.scrollBy(0,500)", "");
 ```
 
 ### Executing the Test

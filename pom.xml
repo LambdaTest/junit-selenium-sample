@@ -92,7 +92,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/BrowserCache.java</include>
+                                <include>com/lambdatest/ScrollingExample.java</include>
                             </includes>
                         </configuration>
                     </plugin>
