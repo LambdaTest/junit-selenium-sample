@@ -28,8 +28,7 @@ public class Timezone {
         capabilities.setCapability("name", "Timezone Test");
         capabilities.setCapability("plugin", "git-junit");
 
-       
-
+        capabilities.setCapability("timezone", "UTC+03:00"); // Timezone capability to set the timezone
         try {
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + gridURL), capabilities);
         } catch (MalformedURLException e) {
