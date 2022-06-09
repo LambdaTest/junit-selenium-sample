@@ -92,7 +92,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/GeoLocation.java</include>
+                                <include>com/lambdatest/Timezone.java</include>
                             </includes>
                         </configuration>
                     </plugin>

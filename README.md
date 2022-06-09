@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest (GeoLocation Testing Example)
+# Run Selenium Tests With JUnit On LambdaTest (Timezone Testing Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -102,7 +102,7 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("name", "GeoLocation Test");
         capabilities.setCapability("plugin", "git-junit");
 
-        capabilities.setCapability("geoLocation", "AR"); // Geolocation capability, check LambdaTest Capability Generator
+        capabilities.setCapability("timezone", "UTC+03:00"); // Timezone capability to set the timezone
 
 ```
 
