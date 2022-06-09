@@ -25,10 +25,11 @@ public class Timezone {
         capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any
                                                               // available one
         capabilities.setCapability("build", "Junit Testing Example");
-        capabilities.setCapability("name", "GeoLocation Test");
+        capabilities.setCapability("name", "Timezone Test");
         capabilities.setCapability("plugin", "git-junit");
 
-        capabilities.setCapability("timezone", "UTC+03:00"); // Timezone capability to set the timezone
+       
+
         try {
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + gridURL), capabilities);
         } catch (MalformedURLException e) {
