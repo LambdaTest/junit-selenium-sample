@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest
+# Run Selenium Tests With JUnit On LambdaTest (GeoLocation Testing Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -94,15 +94,16 @@ Make sure you have your LambdaTest credentials with you to run test automation s
 
 ```java
 DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("version", "70.0");
-        capabilities.setCapability("platform", "win10"); // If this cap isn't specified, it will just get the any available one
-        capabilities.setCapability("build", "LambdaTestSampleApp");
-        capabilities.setCapability("name", "LambdaTestJavaSample");
-        capabilities.setCapability("network", true); // To enable network logs
-        capabilities.setCapability("visual", true); // To enable step by step screenshot
-        capabilities.setCapability("video", true); // To enable video recording
-        capabilities.setCapability("console", true); // To capture console logs
+       capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("version", "latest");
+        capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any
+                                                              // available one
+        capabilities.setCapability("build", "Junit Testing Example");
+        capabilities.setCapability("name", "GeoLocation Test");
+        capabilities.setCapability("plugin", "git-junit");
+
+        capabilities.setCapability("geoLocation", "AR"); // Geolocation capability, check LambdaTest Capability Generator
+
 ```
 
 You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/).
