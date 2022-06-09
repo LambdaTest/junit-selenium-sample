@@ -92,7 +92,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/Timezone.java</include>
+                                <include>com/lambdatest/Headless.java</include>
                             </includes>
                         </configuration>
                     </plugin>

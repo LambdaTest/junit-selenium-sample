@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest (Timezone Testing Example)
+# Run Selenium Tests With JUnit On LambdaTest (Headless Testing Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -102,8 +102,22 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("name", "GeoLocation Test");
         capabilities.setCapability("plugin", "git-junit");
 
-        capabilities.setCapability("timezone", "UTC+03:00"); // Timezone capability to set the timezone
+         // Chrome flag for headless using chrome options
+       ChromeOptions options = new ChromeOptions();
 
+       options.addArguments("--no-sandbox");
+       options.addArguments("--headless"); // headless flag for chrome
+       options.addArguments("disable-gpu");
+
+       capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+       /*
+        * At lambdatest you can execute headless tests via `headless` capability on
+        * chrome, firefox and microsoft edge browser
+        */
+
+       // lambdatest Headless capability
+       // caps.setCapability("headless",true);
 ```
 
 You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/).
