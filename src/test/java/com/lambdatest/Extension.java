@@ -10,10 +10,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Incognito {
+public class Extension {
     String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
     String accessKey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
     public static RemoteWebDriver driver = null;
@@ -31,10 +32,10 @@ public class Incognito {
         capabilities.setCapability("name", "Incognito Test");
         capabilities.setCapability("plugin", "git-junit");
 
-        ChromeOptions options = new ChromeOptions();
-        // Setting chrome flag for incognito mode
-        options.addArguments("--incognito");
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+      // Extension upload here using chrome options
+      ChromeOptions options = new ChromeOptions ();
+      options.addExtensions (new File("./LambdatestScreenshotExtension.crx"));
+      capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         try {
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + gridURL), capabilities);
