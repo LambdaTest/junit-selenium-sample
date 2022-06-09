@@ -8,14 +8,16 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 
-public class ElementBySearch {
+public class Cookies {
     String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
     String accessKey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
     public static RemoteWebDriver driver = null;
@@ -30,7 +32,7 @@ public class ElementBySearch {
         capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any
                                                               // available one
         capabilities.setCapability("build", "Junit Testing Example");
-        capabilities.setCapability("name", "ElementBySearch Test");
+        capabilities.setCapability("name", "Cookies Test");
         capabilities.setCapability("plugin", "git-junit");
 
         try {
@@ -49,24 +51,21 @@ public class ElementBySearch {
             System.out.println("Loading Url");
     
             driver.get("https://lambdatest.github.io/sample-todo-app/");
-            /*
-             * text(): A built-in method in Selenium WebDriver that is used with XPath
-             * locator to locate an element based on its exact text value.
-             * Example: //*[ text() = ‘5 of 5 remaining’ ]
-             * contains(): Similar to the text() method, contains() is another built-in
-             * method used to locate an element based on partial text match.
-             * For example, if we need to locate a label that has “5 of 5 remaining” as its
-             * text, it can be located using the following line of code with Xpath.
-             * Example: //*[ contains (text(), ‘5 of 5’ ) ]
-             */
     
-            // Locating element with text()
-            WebElement e = driver.findElement(By.xpath("//*[text()='5 of 5 remaining']"));
-            System.out.println(e.getText());
+            driver.manage().addCookie(new Cookie("cookieName", "lambdatest")); // Creates and adds the cookie
     
-            // located element with contains()
-            WebElement m = driver.findElement(By.xpath("//*[contains(text(),'5 of 5')]"));
-            System.out.println(m.getText());
+            Set<Cookie> cookiesSet = driver.manage().getCookies(); // Returns the List of all Cookies
+    
+            for (Cookie itemCookie : cookiesSet) {
+                System.out.println((itemCookie.getName() + ";" + itemCookie.getValue() + ";" + itemCookie.getDomain() + ";"
+                        + itemCookie.getPath() + ";" + itemCookie.getExpiry() + ";" + itemCookie.isSecure()));
+            }
+    
+            driver.manage().getCookieNamed("cookieName"); // Returns the specific cookie according to name
+    
+            driver.manage().deleteCookie(driver.manage().getCookieNamed("cookieName")); // Deletes the specific cookie
+            driver.manage().deleteCookieNamed("cookieName"); // Deletes the specific cookie according to the Name
+            driver.manage().deleteAllCookies(); // Deletes all the cookies
     
             System.out.println("Checking Box");
             driver.findElement(By.name("li1")).click();

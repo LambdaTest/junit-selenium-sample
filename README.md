@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest (Locating element with text and partial text Example)
+# Run Selenium Tests With JUnit On LambdaTest (Cookies Handling Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -102,16 +102,24 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("name", "GeoLocation Test");
         capabilities.setCapability("plugin", "git-junit");
 ```
-### Locating element with text and partial text testng java
+### Handling cookies in java Junit
 ```java
- // Locating element with text()
-        WebElement e = driver.findElement(By.xpath("//*[text()='5 of 5 remaining']"));
-        System.out.println(e.getText());
+driver.manage().addCookie(new Cookie("cookieName", "lambdatest")); // Creates and adds the cookie
 
-        // located element with contains()
-        WebElement m = driver.findElement(By.xpath("//*[contains(text(),'5 of 5')]"));
-        System.out.println(m.getText());
+        Set<Cookie> cookiesSet = driver.manage().getCookies(); // Returns the List of all Cookies
+
+        for (Cookie itemCookie : cookiesSet) {
+            System.out.println((itemCookie.getName() + ";" + itemCookie.getValue() + ";" + itemCookie.getDomain() + ";"
+                    + itemCookie.getPath() + ";" + itemCookie.getExpiry() + ";" + itemCookie.isSecure()));
+        }
+
+        driver.manage().getCookieNamed("cookieName"); // Returns the specific cookie according to name
+
+        driver.manage().deleteCookie(driver.manage().getCookieNamed("cookieName")); // Deletes the specific cookie
+        driver.manage().deleteCookieNamed("cookieName"); // Deletes the specific cookie according to the Name
+        driver.manage().deleteAllCookies(); // Deletes all the cookies
 ```
+
 
 
 ### Upload extension on to Lambda Storage and use in automation tests for Large extensions
