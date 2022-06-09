@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest (Cookies Handling Example)
+# Run Selenium Tests With JUnit On LambdaTest (Browser Cache Clearing Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -99,47 +99,15 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any
                                                               // available one
         capabilities.setCapability("build", "Junit Testing Example");
-        capabilities.setCapability("name", "GeoLocation Test");
+        capabilities.setCapability("name", "BrowserCache Test");
         capabilities.setCapability("plugin", "git-junit");
 ```
-### Handling cookies in java Junit
+### Clearing Browser Cache after Test
 ```java
-driver.manage().addCookie(new Cookie("cookieName", "lambdatest")); // Creates and adds the cookie
-
-        Set<Cookie> cookiesSet = driver.manage().getCookies(); // Returns the List of all Cookies
-
-        for (Cookie itemCookie : cookiesSet) {
-            System.out.println((itemCookie.getName() + ";" + itemCookie.getValue() + ";" + itemCookie.getDomain() + ";"
-                    + itemCookie.getPath() + ";" + itemCookie.getExpiry() + ";" + itemCookie.isSecure()));
-        }
-
-        driver.manage().getCookieNamed("cookieName"); // Returns the specific cookie according to name
-
-        driver.manage().deleteCookie(driver.manage().getCookieNamed("cookieName")); // Deletes the specific cookie
-        driver.manage().deleteCookieNamed("cookieName"); // Deletes the specific cookie according to the Name
-        driver.manage().deleteAllCookies(); // Deletes all the cookies
+ // Clearing browser Cache after Test
+        driver.manage().deleteAllCookies(); // delete all cookies
+        Thread.sleep(7000); // wait 7 seconds to clear cookies.
 ```
-
-
-
-### Upload extension on to Lambda Storage and use in automation tests for Large extensions
-- To upload the extension.zip file onto the lambda storage, you can use the extensions API we have : 
-- Apid Doc URL: https://www.lambdatest.com/support/docs/api-doc/#/extensions/UploadExtensions
-    Authorization: Basic Auth (LambdaTest Credentials)
-    Body: form-data{ key: extensions value: file.zip }
-    
-You have to upload the original extension zip file instead of the crx file.Note.
-Attaching a sample LT extension for your reference. 
-Extension: https://drive.google.com/file/d/1dvq4bhEOfmCrpG6ekdaIg9UB8tr9z3NJ/view?usp=sharing
-Once you have uploaded the Zip file, you'll get the `s3_url` which can be used in the respective capability.
-
-```java 
-String[] extention = {"https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-XXXX/2.1.0_0.zip"};
-capabilities.setCapability("lambda:loadExtension", extention);
-```
-You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/).
-
-You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/).
 
 ### Executing the Test
 
