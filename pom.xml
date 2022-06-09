@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.1.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -92,7 +92,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/ScrollingExample.java</include>
+                                <include>com/lambdatest/Authentication.java</include>
                             </includes>
                         </configuration>
                     </plugin>
