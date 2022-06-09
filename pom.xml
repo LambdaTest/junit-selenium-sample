@@ -92,7 +92,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>com/lambdatest/Extension.java</include>
+                                <include>com/lambdatest/ElementBySearch.java</include>
                             </includes>
                         </configuration>
                     </plugin>

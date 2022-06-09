@@ -1,4 +1,4 @@
-# Run Selenium Tests With JUnit On LambdaTest (Extension Upload Testing Example)
+# Run Selenium Tests With JUnit On LambdaTest (Locating element with text and partial text Example)
 
 ![image](https://user-images.githubusercontent.com/70570645/171432631-dcc31b10-6590-4877-98c0-4ac702fbd441.png)
 
@@ -101,12 +101,18 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "Junit Testing Example");
         capabilities.setCapability("name", "GeoLocation Test");
         capabilities.setCapability("plugin", "git-junit");
-
-       // Chrome options to add extension file (Works with file size upto 10MB)
-        ChromeOptions options = new ChromeOptions ();
-        options.addExtensions (new File("./LambdatestScreenshotExtension.crx"));
-        caps.setCapability(ChromeOptions.CAPABILITY, options);
 ```
+### Locating element with text and partial text testng java
+```java
+ // Locating element with text()
+        WebElement e = driver.findElement(By.xpath("//*[text()='5 of 5 remaining']"));
+        System.out.println(e.getText());
+
+        // located element with contains()
+        WebElement m = driver.findElement(By.xpath("//*[contains(text(),'5 of 5')]"));
+        System.out.println(m.getText());
+```
+
 
 ### Upload extension on to Lambda Storage and use in automation tests for Large extensions
 - To upload the extension.zip file onto the lambda storage, you can use the extensions API we have : 
