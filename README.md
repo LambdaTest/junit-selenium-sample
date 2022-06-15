@@ -21,7 +21,7 @@
 
 *Learn how to use JUnit framework to configure and run your Java automation testing scripts on the LambdaTest platform*
 
-[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register)
+[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
 
 
 ## Table Of Contents
@@ -68,7 +68,7 @@ mvn versions:display-dependency-updates
 
 ### Setting Up Your Authentication
 
-Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login).
+Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample).
 
 **Step 2:** Set LambdaTest **Username** and **Access Key** in environment variables.
 
@@ -105,7 +105,7 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("console", true); // To capture console logs
 ```
 
-You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/).
+You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample).
 
 ### Executing the Test
 
@@ -136,7 +136,7 @@ mvn test -P parallel
 
 You can test your locally hosted or privately hosted projects with LambdaTest Selenium grid using LambdaTest Tunnel. All you would have to do is set up an SSH tunnel using tunnel and pass toggle `tunnel = True` via desired capabilities. LambdaTest Tunnel establishes a secure SSH protocol based tunnel that allows you in testing your locally hosted or privately hosted pages, even before they are live.
 
-Refer our [LambdaTest Tunnel documentation](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/) for more information.
+Refer our [LambdaTest Tunnel documentation](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample) for more information.
 
 Here’s how you can establish LambdaTest Tunnel.
 
@@ -170,23 +170,23 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
 
 Check out our latest tutorials on JUnit automation testing 👇
 
-* [JUnit 5 vs TestNG: Choosing the Right Frameworks for Selenium Automation Testing](https://www.lambdatest.com/blog/junit-5-vs-testng/)
-* [TestNG vs JUnit: Which Testing Framework Should You Choose?](https://www.lambdatest.com/blog/testng-vs-junit-which-testing-framework-should-you-choose/)
-* [JUnit With Selenium](https://www.lambdatest.com/blog/automated-testing-with-junit-and-selenium-for-browser-compatibility/)
-* [JUnit Environment Setup](https://www.lambdatest.com/blog/setup-junit-environment/)
-* [How to Run JUnit Selenium Tests Using TestNG?](https://www.lambdatest.com/blog/test-example-junit-and-testng-in-selenium/)
-* [[Complete JUnit 5 Mockito Tutorial for Unit Testing]](https://www.lambdatest.com/blog/junit5-mockito-tutorial/)
-* [Parallel Testing with JUnit 5 and Selenium [Tutorial]](https://www.lambdatest.com/blog/parallel-testing-with-junit5-and-selenium/)
-* [How to Execute JUnit 4 Tests with JUnit 5 [Tutorial]](https://www.lambdatest.com/blog/execute-junit4-tests-with-junit5/)
-* [How to Run JUnit Tests from the Command Line?](https://www.lambdatest.com/blog/run-junit-from-command-line/)
-* [How to Minimize Browsers in Selenium WebDriver Using JUnit?](https://www.lambdatest.com/blog/minimize-browsers-in-selenium-webdriver/)
-* [How to use @RepeatedTest Annotations in JUnit 5?](https://www.lambdatest.com/blog/repeatedtest-annotation-in-junit-5/)
-* [A Comprehensive Guide on JUnit 5 Extensions](https://www.lambdatest.com/blog/junit5-extensions/)
-* [How to Run JUnit Selenium Tests Using TestNG?](https://www.lambdatest.com/blog/test-example-junit-and-testng-in-selenium/)
-* [JUnit Parameterized Test for Selenium Automation with Examples](https://www.lambdatest.com/blog/junit-parameterized-test-selenium/)
-* [JUnit Asserts with Examples](https://www.lambdatest.com/blog/junit-assertions-example-for-selenium-testing/)
-* [Tutorial on JUnit Annotations with Examples](https://www.lambdatest.com/blog/tutorial-on-junit-annotations-in-selenium-with-examples/)
-* [Automated Testing with JUnit and Selenium for Browser Compatibility](https://www.lambdatest.com/blog/automated-testing-with-junit-and-selenium-for-browser-compatibility/)
+* [JUnit 5 vs TestNG: Choosing the Right Frameworks for Selenium Automation Testing](https://www.lambdatest.com/blog/junit-5-vs-testng/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [TestNG vs JUnit: Which Testing Framework Should You Choose?](https://www.lambdatest.com/blog/testng-vs-junit-which-testing-framework-should-you-choose/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [JUnit With Selenium](https://www.lambdatest.com/blog/automated-testing-with-junit-and-selenium-for-browser-compatibility/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [JUnit Environment Setup](https://www.lambdatest.com/blog/setup-junit-environment/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [How to Run JUnit Selenium Tests Using TestNG?](https://www.lambdatest.com/blog/test-example-junit-and-testng-in-selenium/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [[Complete JUnit 5 Mockito Tutorial for Unit Testing]](https://www.lambdatest.com/blog/junit5-mockito-tutorial/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [Parallel Testing with JUnit 5 and Selenium [Tutorial]](https://www.lambdatest.com/blog/parallel-testing-with-junit5-and-selenium/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [How to Execute JUnit 4 Tests with JUnit 5 [Tutorial]](https://www.lambdatest.com/blog/execute-junit4-tests-with-junit5/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [How to Run JUnit Tests from the Command Line?](https://www.lambdatest.com/blog/run-junit-from-command-line/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [How to Minimize Browsers in Selenium WebDriver Using JUnit?](https://www.lambdatest.com/blog/minimize-browsers-in-selenium-webdriver/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [How to use @RepeatedTest Annotations in JUnit 5?](https://www.lambdatest.com/blog/repeatedtest-annotation-in-junit-5/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [A Comprehensive Guide on JUnit 5 Extensions](https://www.lambdatest.com/blog/junit5-extensions/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [How to Run JUnit Selenium Tests Using TestNG?](https://www.lambdatest.com/blog/test-example-junit-and-testng-in-selenium/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [JUnit Parameterized Test for Selenium Automation with Examples](https://www.lambdatest.com/blog/junit-parameterized-test-selenium/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [JUnit Asserts with Examples](https://www.lambdatest.com/blog/junit-assertions-example-for-selenium-testing/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [Tutorial on JUnit Annotations with Examples](https://www.lambdatest.com/blog/tutorial-on-junit-annotations-in-selenium-with-examples/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
+* [Automated Testing with JUnit and Selenium for Browser Compatibility](https://www.lambdatest.com/blog/automated-testing-with-junit-and-selenium-for-browser-compatibility/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
 
 For video tutorials on Selenium JUnit, please refer to our [JUnit Tutorial Playlist](https://www.youtube.com/playlist?list=PLZMWkkQEwOPn68qzCGJl07ZbnI7Ix5zKU). ▶️
 
@@ -203,11 +203,11 @@ Visit the following links to learn more about LambdaTest's features, setup and t
 
 ## LambdaTest Community :busts_in_silhouette:
 
-The [LambdaTest Community](https://community.lambdatest.com/) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
+The [LambdaTest Community](https://community.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
 
 ## What's New At LambdaTest ❓
 
-To stay updated with the latest features and product add-ons, visit [Changelog](https://changelog.lambdatest.com/) 
+To stay updated with the latest features and product add-ons, visit [Changelog](https://changelog.lambdatest.com) 
       
 ## About LambdaTest
 
@@ -234,5 +234,5 @@ To stay updated with the latest features and product add-ons, visit [Changelog](
       
 ## We are here to help you :headphones:
 
-* Got a query? we are available 24x7 to help. [Contact Us](support@lambdatest.com)
+* Got a query? we are available 24x7 to help. [Contact Us](mailto:support@lambdatest.com)
 * For more info, visit - [LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample)
