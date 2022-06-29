@@ -1,2 +1,2 @@
 tasks:
-  - init: mvn test
+  - init: mvn test -P single
