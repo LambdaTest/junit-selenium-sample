@@ -28,7 +28,6 @@
 
 * [Pre-requisites](#pre-requisites)
 * [Run Your First Test](#run-your-first-test)
-* [Parallel Testing With JUnit](#run-parallel-tests-using-junit)
 * [Local Testing With JUnit](#testing-locally-hosted-or-privately-hosted-projects)
 
 ## Pre-requisites
@@ -53,11 +52,11 @@ Before you can start performing Java automation testing with Selenium, you would
 
 ### Cloning Repo And Installing Dependencies
 
-**Step 1:** Clone the LambdaTest’s JUnit-Selenium-Sample repository and navigate to the code directory as shown below:
+**Step 1:** Clone the LambdaTest’s junit-autoheal-sample repository and navigate to the code directory as shown below:
 
 ```bash
-git clone https://github.com/LambdaTest/junit-selenium-sample
-cd junit-selenium-sample
+git clone -b junit-autoheal-sample https://github.com/LambdaTest/junit-selenium-sample
+cd junit-autoheal-sample
 ```
 
 You may also want to run the command below to check for outdated dependencies.
@@ -68,7 +67,7 @@ mvn versions:display-dependency-updates
 
 ### Setting Up Your Authentication
 
-Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample).
+Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=junit-autoheal-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=junit-autoheal-sample).
 
 **Step 2:** Set LambdaTest **Username** and **Access Key** in environment variables.
 
@@ -86,50 +85,47 @@ Make sure you have your LambdaTest credentials with you to run test automation s
 
 ## Run Your First Test
 
->**Test Scenario**: Checkout sample [JUnitTodo.java](https://github.com/LambdaTest/junit-selenium-sample/blob/master/src/test/java/com/lambdatest/JUnitTodo.java) file. This JUnit Selenium script tests a sample to-do list app by marking couple items as done, adding a new item to the list and finally displaying the count of pending items as output.
+>**Test Scenario**: This test automates the process of searching for a book titled "Python Programming" in the Books category on Amazon.in using the LambdaTest platform.
+
+**📋 Test Steps**
+- The script initializes a remote WebDriver session on LambdaTest with the desired capabilities (Windows 10, Chrome browser).
+- The Amazon.in website is loaded.
+- **The script updates the ID attributes of the search submit button and search textbox.**
+- The search category dropdown is clicked to reveal the list of categories.
+- The 'Books' category is selected from the dropdown.
+- The term "Python Programming" is entered into the search textbox.
+- The search button is clicked to initiate the search.
+
+With `AutoHeal` Enable, the test scenario passed even after updating the ID attribute of submit button.
 
 ### Configuring your Test Capabilities
 
 **Step 3:** In the test script, you need to update your test capabilities. In this code, we are passing browser, browser version, and operating system information, along with LambdaTest Selenium grid capabilities via capabilities object. The capabilities object in the above code are defined as:
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        //capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any available one
-        capabilities.setCapability("build", "LambdaTestSampleApp");
-        capabilities.setCapability("name", "LambdaTestJavaSample");
-       // capabilities.setCapability("network", true); // To enable network logs
-       // capabilities.setCapability("visual", true); // To enable step by step screenshot
-       // capabilities.setCapability("video", true); // To enable video recording
-       // capabilities.setCapability("console", true); // To capture console logs
+ DesiredCapabilities desiredCaps = new DesiredCapabilities();
+        desiredCaps.setCapability("LT:Options", new DesiredCapabilities() {
+            {
+                setCapability("build", "Auto Heal Demo");
+                setCapability("name", "Auto Heal Test" );
+                setCapability("autoHeal", true);
+            }
+        });
+        desiredCaps.setCapability("browserName", "Chrome");
 ```
 
-You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample).
+You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=junit-autoheal-sample).
 
 ### Executing the Test
 
 **Step 4:** The tests can be executed in the terminal using the following command.
 
 ```bash
-mvn test -P single
+export AUTOHEAL=true; mvn test -P autoheal
 ```
 
 Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on [LambdaTest automation dashboard](https://automation.lambdatest.com/build). 
 
-## Run Parallel Tests Using JUnit
-
-Check out the [Parallelized.java](https://github.com/LambdaTest/junit-selenium-sample/blob/master/src/test/java/com/lambdatest/Parallelized.java) class we have used for running our Parallel Tests using JUnit.
-
-
-Check out the [JUnitConcurrentTodo.java](https://github.com/LambdaTest/junit-selenium-sample/blob/master/src/test/java/com/lambdatest/JUnitConcurrentTodo.java) file for executing parallel test using JUnit automation framework.
-
-### Executing Parallel Tests Using JUnit
-
-To run parallel tests using **JUnit**, we would have to execute the below command in the terminal:
-
-```bash
-mvn test -P parallel
-```
 
 ## Testing Locally Hosted Or Privately Hosted Projects
 

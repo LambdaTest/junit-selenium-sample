@@ -23,7 +23,7 @@ public class AutoHealDemoTest {
         desiredCaps.setCapability("LT:Options", new DesiredCapabilities() {
             {
                 setCapability("build", "Auto Heal Demo");
-                setCapability("name", "Auto Heal" +AUTO_HEAL.toUpperCase() );
+                setCapability("name", "Auto Heal " +AUTO_HEAL.toUpperCase() );
                 setCapability("autoHeal", AUTO_HEAL);
                 setCapability("geoLocation", "IN");
             }
@@ -42,6 +42,7 @@ public class AutoHealDemoTest {
     @Test
     public void testDemoSite() throws InterruptedException {
         loadAmazonWebsite();
+        if (AUTO_HEAL.equalsIgnoreCase("true"))
         updateLocators();
         searchBookAndGoToCart();
     }
@@ -89,12 +90,8 @@ public class AutoHealDemoTest {
     public void loadAmazonWebsite() throws InterruptedException {
         System.out.println("Loading URL");
         driver.get("https://www.amazon.com");
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         TimeUnit.SECONDS.sleep(10);
         System.out.println("Page Loaded Successfully.");
-    }
-
-    public static void main(String[] args) {
-        org.junit.runner.JUnitCore.main("AutoHealDemoTest");
     }
 }
