@@ -1,2 +1,3 @@
 tasks:
-  - init: mvn test -P single
+  - init: export AUTOHEAL=true; mvn test -P autoheal
+  - command: export AUTOHEAL=false; mvn test -P autoheal
