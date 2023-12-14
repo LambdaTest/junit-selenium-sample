@@ -93,15 +93,23 @@ Make sure you have your LambdaTest credentials with you to run test automation s
 **Step 3:** In the test script, you need to update your test capabilities. In this code, we are passing browser, browser version, and operating system information, along with LambdaTest Selenium grid capabilities via capabilities object. The capabilities object in the above code are defined as:
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        //capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any available one
-        capabilities.setCapability("build", "LambdaTestSampleApp");
-        capabilities.setCapability("name", "LambdaTestJavaSample");
-       // capabilities.setCapability("network", true); // To enable network logs
-       // capabilities.setCapability("visual", true); // To enable step by step screenshot
-       // capabilities.setCapability("video", true); // To enable video recording
-       // capabilities.setCapability("console", true); // To capture console logs
+ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setCapability("platformName", "Windows 10");
+        browserOptions.setCapability("browserVersion", "latest");
+
+        Map<String, Object> ltOptions = new HashMap<>();
+        ltOptions.put("build", "JUnitSampleTestApp");
+        ltOptions.put("name", "JUnitSampleTest");
+        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("project", "");  //Enter Project name here
+        ltOptions.put("smartUI.project", "");  //Enter smartUI Project name here
+        ltOptions.put("w3c", true);
+        ltOptions.put("plugin", "junit-junit");
+        ltOptions.put("visual", true); // To enable step by step screenshot
+        ltOptions.put("network", true); // To enable network logs
+        ltOptions.put("video", true); // To enable video recording
+        ltOptions.put("console", true); // To capture console logs
+        browserOptions.setCapability("LT:Options", ltOptions);
 ```
 
 You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=junit-selenium-sample).
@@ -161,8 +169,12 @@ Once you are able to connect **LambdaTest Tunnel** successfully, you would just 
 **Tunnel Capability**
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();        
-        capabilities.setCapability("tunnel", true);
+ChromeOptions browserOptions = new ChromeOptions();         
+        browserOptions.setCapability("platformName", "Windows 10");
+        browserOptions.setCapability("browserVersion", "latest");
+
+        Map<String, Object> ltOptions = new HashMap<>();
+         ltOptions.put("tunnel", true);
 ```
 
 ## Tutorials 📙

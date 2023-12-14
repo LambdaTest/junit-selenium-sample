@@ -1,5 +1,6 @@
 package com.lambdatest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.junit.After;
@@ -9,8 +10,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.LinkedList;
- 
+import java.util.Map;
+
 @RunWith(Parallelized.class)
 public class JUnitConcurrentTodo {
     String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
@@ -20,7 +23,7 @@ public class JUnitConcurrentTodo {
      public String platform;
      public String browserName;
      public String browserVersion;
-    public RemoteWebDriver driver = null;
+     public RemoteWebDriver driver = null;
      public String status = "failed";
     
      @Parameterized.Parameters
@@ -28,7 +31,7 @@ public class JUnitConcurrentTodo {
         LinkedList<String[]> env = new LinkedList<String[]>();
         env.add(new String[]{"Windows 10", "chrome", "latest"});
         env.add(new String[]{"Windows 10","firefox","latest"});
-        env.add(new String[]{"Windows 10","internet explorer","latest"});
+        env.add(new String[]{"Windows 10","edge","latest"});
         return env;
     }
    
@@ -39,29 +42,42 @@ public class JUnitConcurrentTodo {
      }
     @Before
     public void setUp() throws Exception {
-       DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", browserName);
-        capabilities.setCapability("version", browserVersion);
-        capabilities.setCapability("platform", platform); // If this cap isn't specified, it will just get the any available one
-        capabilities.setCapability("build", "JUnitParallelSample");
-        capabilities.setCapability("name", "JUnitParallelSampleTest");
-        // capabilities.setCapability("network", true); // To enable network logs
-        // capabilities.setCapability("visual", true); // To enable step by step screenshot
-        // capabilities.setCapability("video", true); // To enable video recording
-        // capabilities.setCapability("console", true); // To capture console logs
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setCapability("platformName", platform);
+        browserOptions.setCapability("browserName", browserName);
+        browserOptions.setCapability("browserVersion", browserVersion);
+
+        Map<String, Object> ltOptions = new HashMap<>();
+        ltOptions.put("build", "JUnitParallelSampleApp");
+        ltOptions.put("name", "JUnitParallelSampleTest");
+        ltOptions.put("selenium_version", "4.0.0");
+        // ltOptions.put("project", "");  //Enter Project name here
+        ltOptions.put("smartUI.project", ""); //Enter smartUI Project name here
+        ltOptions.put("w3c", true);
+        ltOptions.put("plugin", "junit-junit");
+        // ltOptions.put("visual", true); // To enable step by step screenshot
+        // ltOptions.put("network", true); // To enable network logs
+        // ltOptions.put("video", true); // To enable video recording
+        // ltOptions.put("console", true); // To capture console logs
+        browserOptions.setCapability("LT:Options", ltOptions);
+
         try {
-            driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + gridURL), capabilities);
+            driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + gridURL), browserOptions);
         } catch (MalformedURLException e) {
             System.out.println("Invalid grid URL");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
     @Test
     public void testParallel() throws Exception {
        try {
               //Change it to production page
             driver.get("https://lambdatest.github.io/sample-todo-app/");
+
+              // Add Webhook here for Screenshot         
+
               //Let's mark done first two items in the list.
               driver.findElement(By.name("li1")).click();
             driver.findElement(By.name("li2")).click();
