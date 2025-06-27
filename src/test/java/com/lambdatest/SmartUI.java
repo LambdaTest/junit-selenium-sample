@@ -25,13 +25,10 @@ public class SmartUI {
     @Before
     public void setUp() throws Exception {
         ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setCapability("platformName", "Windows 10");
-        browserOptions.setCapability("browserVersion", "latest");
 
         Map<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("build", "JUnitSampleTestApp");
         ltOptions.put("name", "JUnitSampleTest");
-        ltOptions.put("selenium_version", "4.0.0");
         ltOptions.put("project", "SmartUI-Junit-Selenium");  //Enter Project name here
         ltOptions.put("smartUI.project", "Junit-Selenium");  //Enter smartUI Project name here
         ltOptions.put("w3c", true);
