@@ -14,11 +14,16 @@ public class SmartuiPdfLocalTest {
 
   @Before
   public void setup() {
-    projectToken= (System.getenv("PROJECT_TOKEN")!=null)?System.getenv("PROJECT_TOKEN")
-      :"YOUR PROJECT TOKEN";
+    // Get LambdaTest credentials from environment variables
+    String username = (System.getenv("LT_USERNAME") != null) ? System.getenv("LT_USERNAME")
+      : "YOUR LAMBDA TEST USERNAME";
+    String accessKey = (System.getenv("LT_ACCESS_KEY") != null) ? System.getenv("LT_ACCESS_KEY")
+      : "YOUR LAMBDA TEST ACCESS KEY";
+    projectToken = (System.getenv("PROJECT_TOKEN") != null) ? System.getenv("PROJECT_TOKEN")
+      : "YOUR PROJECT TOKEN";
 
-    if(projectToken == null) {
-      throw new RuntimeException("Please set PROJECT_TOKEN environment variable");
+    if (username == null || accessKey == null || projectToken == null) {
+      throw new RuntimeException("Please set LT_USERNAME, LT_ACCESS_KEY and PROJECT_TOKEN environment variables");
     }
   }
 
