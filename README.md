@@ -177,6 +177,60 @@ ChromeOptions browserOptions = new ChromeOptions();
          ltOptions.put("tunnel", true);
 ```
 
+### Run your First SmartUI PDF Local Test
+1. Clone the Java-Selenium-Sample repository. 
+```
+git clone https://github.com/LambdaTest/java-selenium-sample.git
+```
+2. Next get into Java-Selenium-Sample folder, and import Lamabdatest SmartUI Credentials. You can get these from lambdatest automation dashboard.
+   <p align="center">
+   <b>For Linux/macOS:</b>:
+ 
+```
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR ACCESS KEY"
+export PROJECT_TOKEN="YOUR PROJECT TOKEN"
+```
+<p align="center">
+   <b>For Windows:</b>
+
+```
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR ACCESS KEY"
+set PROJECT_TOKEN="YOUR PROJECT TOKEN"
+```
+Step 3. Run SmartUI PDF Local test.
+```
+mvn test -P smartuiPdfLocal
+```
+
+### Run your First SmartUI PDF Cloud Test
+1. Clone the Java-Selenium-Sample repository. 
+```
+git clone https://github.com/LambdaTest/java-selenium-sample.git
+```
+2. Next get into Java-Selenium-Sample folder, and import Lamabdatest SmartUI Credentials. You can get these from lambdatest automation dashboard.
+   <p align="center">
+   <b>For Linux/macOS:</b>:
+ 
+```
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR ACCESS KEY"
+export PROJECT_TOKEN="YOUR PROJECT TOKEN"
+```
+<p align="center">
+   <b>For Windows:</b>
+
+```
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR ACCESS KEY"
+set PROJECT_TOKEN="YOUR PROJECT TOKEN"
+```
+Step 3. Run SmartUI PDF Local test.
+```
+mvn test -P smartuiPdfCloud
+```
+
 ## Tutorials 📙
 
 Check out our latest tutorials on JUnit automation testing 👇
