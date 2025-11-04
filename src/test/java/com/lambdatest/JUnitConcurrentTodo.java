@@ -50,7 +50,7 @@ public class JUnitConcurrentTodo {
         Map<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("build", "JUnitParallelSampleApp");
         ltOptions.put("name", "JUnitParallelSampleTest");
-        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("selenium_version", "4.38.0");
         // ltOptions.put("project", "");  //Enter Project name here
         ltOptions.put("smartUI.project", ""); //Enter smartUI Project name here
         ltOptions.put("w3c", true);
@@ -87,8 +87,8 @@ public class JUnitConcurrentTodo {
             driver.findElement(By.id("addbutton")).click();
              
               // Let's check that the item we added is added in the list.
-            String enteredText = driver.findElementByXPath("/html/body/div/div/div/ul/li[6]/span").getText();
-            if (enteredText.equals("Yey, Let's add it to list")) {
+           String enteredText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[6]/span")).getText();
+           if (enteredText.equals("Yey, Let's add it to list")) {
                 status = "passed";
             }
         } catch (Exception e) {
