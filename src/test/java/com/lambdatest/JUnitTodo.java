@@ -38,7 +38,7 @@ public class JUnitTodo {
         Map<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("build", "JUnitSampleTestApp");
         ltOptions.put("name", "JUnitSampleTest");
-        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("selenium_version", "4.38.0");
         // ltOptions.put("project", "");  //Enter Project name here
         // ltOptions.put("smartUI.project", "");  //Enter smartUI Project name here
         ltOptions.put("w3c", true);
