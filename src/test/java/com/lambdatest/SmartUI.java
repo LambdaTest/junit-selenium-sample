@@ -31,6 +31,9 @@ public class SmartUI {
         ltOptions.put("name", "JUnitSampleTest");
         ltOptions.put("project", "SmartUI-Junit-Selenium");  //Enter Project name here
         ltOptions.put("smartUI.project", "Junit-Selenium");  //Enter smartUI Project name here
+        if(System.getenv("BUILD_NAME")!=null && System.getenv("BUILD_NAME")!=""){
+            ltOptions.put("smartUI.build",System.getenv("BUILD_NAME"));
+        }
         ltOptions.put("w3c", true);
         ltOptions.put("plugin", "junit-junit");
         browserOptions.setCapability("LT:Options", ltOptions);
