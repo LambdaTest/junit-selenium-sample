@@ -47,7 +47,7 @@ public class SmartUI {
     @Test
     public void testSimple() throws Exception {
         try {
-           driver.get("https://lambdatest.github.io/sample-todo-app/");
+           driver.get("https://www.testmuai.com/selenium-playground/todo-app/");
             
            //Let's mark done first two items in the list.
            driver.findElement(By.name("li1")).click();
@@ -58,7 +58,7 @@ public class SmartUI {
            driver.findElement(By.id("addbutton")).click();
 
            // Let's check that the item we added is added in the list.
-            String enteredText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[6]/span")).getText();
+            String enteredText = driver.findElement(By.xpath("//input[@name='li6']/following-sibling::span")).getText();
             if (enteredText.equals("Yey, Let's add it to list")) {
                status = "passed";
            }
