@@ -13,7 +13,7 @@
 With TestMu AI (Formerly LambdaTest), you can run Java JUnit tests with Selenium. This sample shows how to configure JUnit + Selenium to run on the TestMu AI cloud.
 
 - [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
-- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/junit-with-selenium-running-junit-automation-scripts-on-testmu-selenium-grid/) for the full setup walkthrough.
 
 ### Prerequisites
 
