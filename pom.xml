@@ -164,4 +164,18 @@
 
     </profiles>
 
+    <!-- Maven Central rate-limits HyperExecute VMs (HTTP 429): resolve "central" through Google's mirror.
+         Set in the POM, not .mvn/maven.config, so it works on every Maven version and from any working directory. -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://maven-central.storage-download.googleapis.com/maven2/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://maven-central.storage-download.googleapis.com/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
